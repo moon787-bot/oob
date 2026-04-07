@@ -1,0 +1,965 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>OOB Kitchen | Rajanya Gulai Kepala Ikan - Surabaya</title>
+    <meta name="description" content="Nikmati gulai kepala ikan terbaik di Surabaya, konsep fusion & hotel dining. Cita rasa autentik, seafood, pasta, pizza. Reservasi WhatsApp.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #d45a2b;
+            --primary-dark: #a83f18;
+            --primary-light: #f37c48;
+            --secondary: #2c5a2a;
+            --accent: #ffb347;
+            --cream: #fff7ef;
+            --dark: #2d2418;
+            --darker: #1a130a;
+            --gray: #6f5e4e;
+            --shadow: 0 6px 14px rgba(0,0,0,0.05);
+            --shadow-hover: 0 12px 22px rgba(0,0,0,0.08);
+            --radius: 24px;
+            --radius-sm: 16px;
+            --transition: all 0.25s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        .pattern-section {
+            background-image: repeating-linear-gradient(45deg, rgba(212,90,43,0.08) 0px, rgba(212,90,43,0.08) 2px, transparent 2px, transparent 12px);
+        }
+        .hero-full {
+            background: linear-gradient(107deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.45) 100%), url('background.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+            border-radius: 0 0 36px 36px;
+            margin-top: -20px;
+            padding: 50px 0;
+            position: relative;
+        }
+        @media (max-width: 640px) {
+            .hero-full {
+                padding: 40px 0;
+                border-radius: 0 0 24px 24px;
+            }
+        }
+        /* MODIFIKASI: Pada HP, background digeser ke kanan 70% (30% dari kanan) */
+        @media (max-width: 768px) {
+            .hero-full {
+                background-position: 70% 30%;
+            }
+        }
+
+        .contact-highlight, .testi-card {
+            background: white;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: 700;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 480px) {
+            .btn {
+                padding: 11px 18px;
+                font-size: 0.9rem;
+                width: 100%;
+            }
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            background: var(--primary-dark);
+            box-shadow: 0 8px 18px rgba(212,90,43,0.2);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        .btn-wa {
+            background: #25D366;
+        }
+        .btn-wa:hover {
+            background: #128C7E;
+        }
+
+        header {
+            background: rgba(255, 247, 239, 0.96);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212,90,43,0.15);
+            padding: 8px 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+        .logo-img {
+            height: 52px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 46px;
+                max-width: 140px;
+            }
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--dark);
+            transition: 0.2s;
+            padding-bottom: 6px;
+            border-bottom: 2px solid transparent;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+        .nav-links a:hover, .nav-links a.active-link {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            font-weight: 700;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                padding: 20px;
+                border-radius: 28px;
+                margin-top: 16px;
+                gap: 16px;
+                box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a {
+                white-space: normal;
+                text-align: center;
+                font-size: 1rem;
+                padding: 8px 0;
+            }
+            /* MODIFIKASI: Sembunyikan urgency note dan feature badge di HP */
+            .urgency-note,
+            .feature-badge {
+                display: none;
+            }
+        }
+
+        .float-wa {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 999;
+            transition: 0.2s;
+        }
+        .float-wa:hover {
+            transform: scale(1.05);
+        }
+        .float-wa a {
+            color: white;
+        }
+        @media (max-width: 480px) {
+            .float-wa {
+                width: 48px;
+                height: 48px;
+                font-size: 24px;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+
+        .page {
+            display: none;
+            padding: 48px 0;
+            animation: fadeUp 0.4s ease;
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @media (max-width: 640px) {
+            .page {
+                padding: 36px 0;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            display: inline-block;
+            position: relative;
+        }
+        @media (max-width: 480px) {
+            .section-title h2 {
+                font-size: 1.7rem;
+            }
+            .section-title {
+                margin-bottom: 32px;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+            color: white;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.9rem;
+            }
+        }
+        .hero-content .highlight {
+            color: #ffb347;
+            border-bottom: 2px solid #ffb347;
+        }
+        .social-proof {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 12px 0 10px;
+        }
+        .urgency-note {
+            font-size: 0.8rem;
+            margin-top: 10px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(220,53,69,0.85);
+            padding: 6px 12px;
+            border-radius: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin: 24px 0 14px;
+        }
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+        .feature-badge {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+            font-weight: 500;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .feature-badge span {
+            background: rgba(0,0,0,0.4);
+            padding: 4px 10px;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* MENU GRID */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        @media (max-width: 580px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        .menu-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+        .menu-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        .menu-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .menu-info {
+            padding: 18px;
+        }
+        .menu-category {
+            font-size: 0.7rem;
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .menu-name {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin: 6px 0;
+        }
+        .menu-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin: 8px 0;
+        }
+        .menu-desc {
+            color: var(--gray);
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        /* Gallery responsive */
+        .gallery-masonry {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            grid-auto-flow: dense;
+        }
+        @media (max-width: 768px) {
+            .gallery-masonry {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+        @media (max-width: 580px) {
+            .gallery-masonry {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .gallery-item.large, .gallery-item.tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            aspect-ratio: 1 / 1;
+        }
+        .gallery-item.large img {
+            aspect-ratio: 2 / 1.2;
+        }
+        .gallery-item.tall img {
+            aspect-ratio: 1 / 1.4;
+        }
+        @media (max-width: 768px) {
+            .gallery-item.large img, .gallery-item.tall img {
+                aspect-ratio: 1 / 1;
+            }
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        @media (max-width: 560px) {
+            .testi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .testi-card {
+            background: white;
+            padding: 20px;
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+        }
+        .testi-avatar {
+            width: 48px;
+            height: 48px;
+            background: #f0dbcc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        .testi-text {
+            font-style: normal;
+            font-weight: 500;
+            margin-bottom: 16px;
+            line-height: 1.45;
+            color: #3e2c1c;
+            font-size: 0.9rem;
+        }
+
+        .contact-highlight {
+            background: white;
+            border-radius: 28px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+        }
+        @media (max-width: 480px) {
+            .contact-highlight {
+                padding: 20px;
+            }
+        }
+        .hotel-note {
+            background: var(--primary);
+            padding: 10px 16px;
+            border-radius: 60px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: 800;
+            color: white;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        .contact-row {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .map-container {
+            flex: 1.2;
+            border-radius: 24px;
+            overflow: hidden;
+            min-height: 280px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 280px;
+            border: 0;
+        }
+        .contact-details {
+            flex: 1;
+        }
+        .contact-details div {
+            margin-bottom: 16px;
+            word-break: break-word;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .contact-row {
+                flex-direction: column;
+            }
+            .map-container, .map-container iframe {
+                min-height: 240px;
+            }
+        }
+
+        footer {
+            background: var(--darker);
+            color: #d9c8b5;
+            padding: 32px 0 20px;
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+        footer p {
+            margin: 6px 0;
+        }
+
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: 0.5s cubic-bezier(0.2, 0.8, 0.4, 1);
+        }
+        .scroll-animation.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 36px;
+        }
+        .cat-btn {
+            background: #efe3d6;
+            border: none;
+            padding: 7px 18px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 480px) {
+            .cat-btn {
+                padding: 6px 14px;
+                font-size: 0.8rem;
+            }
+        }
+        .cat-btn.active, .cat-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .about-card {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            padding: 32px 24px;
+            box-shadow: var(--shadow);
+        }
+        @media (max-width: 480px) {
+            .about-card {
+                padding: 24px 18px;
+            }
+            .about-card p {
+                font-size: 0.9rem;
+            }
+        }
+
+        .feature-box {
+            background: white;
+            border-radius: 24px;
+            padding: 20px 16px;
+            text-align: center;
+            width: 190px;
+            box-shadow: var(--shadow);
+        }
+        @media (max-width: 640px) {
+            .feature-box {
+                width: 160px;
+                padding: 16px 12px;
+            }
+            .feature-box i {
+                font-size: 1.8rem !important;
+            }
+            .feature-box h4 {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .feature-box {
+                width: 100%;
+                max-width: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="float-wa">
+        <a href="https://wa.me/6281321215587?text=Halo%20OOB%20Kitchen,%20saya%20mau%20reservasi" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="#" class="logo" data-page="home">
+                    <img src="Tak berjudul2_20260407093243.png" alt="OOB Kitchen Logo" class="logo-img" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%2060%22%3E%3Crect%20width%3D%22200%22%20height%3D%2260%22%20fill%3D%22%23d45a2b%22%2F%3E%3Ctext%20x%3D%2210%22%20y%3D%2240%22%20fill%3D%22white%22%20font-size%3D%2216%22%3EOOB%20KITCHEN%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                </a>
+                <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#" data-page="home">Beranda</a></li>
+                    <li><a href="#" data-page="menu">Menu</a></li>
+                    <li><a href="#" data-page="gallery">Galeri</a></li>
+                    <li><a href="#" data-page="testimonials">Testimoni</a></li>
+                    <li><a href="#" data-page="contact">Lokasi</a></li>
+                    <li><a href="#" data-page="about">Tentang</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- HOME PAGE -->
+    <section class="page active" id="home">
+        <div class="hero-full pattern-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Rajanya <span class="highlight">Gulai Kepala Ikan</span> </h1>
+                    <div class="social-proof"><i class="fas fa-star"></i> 4.9 (900+ ulasan) • 🏆 Favorit Keluarga Surabaya</div>
+                    <p style="font-size:0.95rem; margin: 10px 0;">Nikmati kuah rempah kental tanpa eneg, suasana hotel premium.</p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/6281321215587?text=Reservasi%20Cepat%20OOB" class="btn btn-outline"><i class="fas fa-calendar-check"></i> Reservasi Sekarang</a>
+                    </div>
+                    <div class="feature-badge">
+                        <span><i class="fas fa-hotel"></i> Dalam MaxOne Hotel Lt.2</span>
+                        <span><i class="fas fa-fish"></i> Ikan Kakap Segar</span>
+                        <span><i class="fas fa-utensils"></i> Fusion Pasta & Pizza</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top: 48px;">
+            <div class="section-title"><h2>Mengapa OOB Kitchen?</h2></div>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                <div class="feature-box"><i class="fas fa-utensils" style="font-size:2rem; color:var(--primary);"></i><h4>Rasa Legendaris</h4><small>Bumbu rahasia turun-temurun</small></div>
+                <div class="feature-box"><i class="fas fa-hand-holding-heart" style="font-size:2rem; color:var(--primary);"></i><h4>Bahan Premium</h4><small>Ikan segar setiap pagi</small></div>
+                <div class="feature-box"><i class="fas fa-mug-hot" style="font-size:2rem; color:var(--primary);"></i><h4>Fusion Kreatif</h4><small>Pasta & pizza seafood</small></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU PAGE -->
+    <section class="page" id="menu">
+        <div class="container">
+            <div class="section-title"><h2>Menu Spesial</h2></div>
+            <div class="category-filter" id="menuFilter">
+                <button class="cat-btn active" data-cat="all">Semua</button>
+                <button class="cat-btn" data-cat="Mie">Mie</button>
+                <button class="cat-btn" data-cat="Nasi">Nasi</button>
+                <button class="cat-btn" data-cat="Spaghetti">Spaghetti</button>
+                <button class="cat-btn" data-cat="Menu lainya">Menu lainya</button>
+            </div>
+            <div class="menu-grid" id="menuContainer"></div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="page" id="gallery">
+        <div class="container">
+            <div class="section-title"><h2>Suasana & Hidangan</h2></div>
+            <div class="gallery-masonry" id="galleryGrid"></div>
+        </div>
+    </section>
+
+    <!-- TESTIMONI -->
+    <section class="page" id="testimonials">
+        <div class="container">
+            <div class="section-title"><h2>Apa Kata Mereka</h2></div>
+            <div class="testi-grid" id="testiContainer"></div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="page" id="contact">
+        <div class="container">
+            <div class="section-title"><h2>Lokasi & Reservasi</h2></div>
+            <div class="contact-highlight">
+                <div class="hotel-note"><i class="fas fa-building"></i> Berlokasi di MAXONE HOTEL – Lantai 2</div>
+                <div class="contact-row">
+                    <div class="contact-details">
+                        <div><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> <strong>Alamat:</strong> Jl. Raya Gubeng No.88, Surabaya (dalam Hotel MaxOne Lt.2)</div>
+                        <div><i class="fab fa-whatsapp" style="color:#25D366;"></i> <strong>WA Reservasi Cepat:</strong> +62 813-2121-5587 </div>
+                        <div><i class="far fa-clock"></i> <strong>Jam Buka:</strong> Senin-Minggu, 10:00 - 22:00 </div>
+                        <a href="https://wa.me/6281321215587?text=Reservasi%20meja%20OOB%20Kitchen" class="btn btn-wa" style="margin-top: 8px; display: inline-flex;"><i class="fab fa-whatsapp"></i> Booking Meja Sekarang</a>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.978127514425!2d112.7321727!3d-7.2583964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f9c166c374c9%3A0xa2813516b16cb0c2!2sMaxOneHotels.com%20Gubeng%20Surabaya!5e0!3m2!1sen!2sid!4v1744040000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy" title="Peta Lokasi OOB Kitchen di MaxOne Hotel Gubeng Surabaya"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="page" id="about">
+        <div class="container">
+            <div class="section-title"><h2>Tentang OOB Kitchen</h2></div>
+            <div class="about-card">
+                <p style="margin-bottom: 20px; font-size:1rem;"><strong>OOB Kitchen</strong> lahir dari kecintaan pada olahan kepala ikan yang kaya akan rempah. Kami hadir sebagai <strong>Rajanya Kepala Ikan</strong> dengan sentuhan fusion modern. Berlokasi strategis di <strong>MaxOne Hotel Lantai 2</strong>, kami menghadirkan pengalaman bersantap yang nyaman, elegan, tapi tetap hangat.</p>
+                <p>Setiap porsi gulai kepala ikan menggunakan ikan kakap segar, bumbu pilihan, dan dimasak dengan teknik terbaik. Nikmati menu mie, nasi, spaghetti, dan menu lainya pilihan. Cocok untuk dinner romantis, gathering keluarga, atau acara kantor.</p>
+                <div style="margin-top: 28px; background:#fef0e6; border-radius: 28px; padding: 14px; text-align:center;">✨ "Rasakan sensasi kepala ikan dengan cita rasa yang tak terlupakan" ✨</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 OOB Kitchen - Rajanya Kepala Ikan | Surabaya | Reservasi WA: +62 813-2121-5587</p>
+            <p style="margin-top: 8px; font-size:0.75rem;">Jl. Raya Gubeng No.88 (Dalam MaxOne Hotel Lt.2) - Lantai 2</p>
+        </div>
+    </footer>
+
+    <script>
+        // ========== MENU DATA ==========
+        const rawMenuData = {
+            "mie": [
+                { "nama": "Max Gacoan", "harga": 39000, "deskripsi": "Mie kekinian dicombinasi dengan kulit ayam crispy, bakso pedas dan pangsit goreng", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/6f7b2f2a-26c6-4cce-831b-d87214ddd053_Go-Biz_20210112_105759.jpeg?auto=format" },
+                { "nama": "Mie Goreng OOB", "harga": 39000, "deskripsi": "Mie goreng spesial khas OOB dengan rasa gurih manis", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/7d1b1f4b-979f-4861-81c1-cd4eb061eaba_Go-Biz_20200707_111001.jpeg?auto=format" },
+                { "nama": "Tamie Goreng", "harga": 49000, "deskripsi": "Mie goreng oriental dengan kuah sayur, udang, bakso, ayam, dan seafood", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/031be292-692f-482f-8a12-5794927fd29f_Go-Biz_20200707_111054.jpeg?auto=format" },
+                { "nama": "Spicy Noodle Chicken Katsu", "harga": 39000, "deskripsi": "Mie goreng super pedas dengan daging asap dan ayam goreng tepung", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/2785a62d-740d-46af-9193-a6dc45d3592c_Go-Biz_20200707_143001.jpeg?auto=format" }
+            ],
+            "nasi": [
+                { "nama": "Nasi Goreng OOB", "harga": 39000, "deskripsi": "Nasi goreng merah khas OOB dengan telur orak-arik, ayam, seafood, dan saus kacang", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/b34c7f28-3b26-414f-a03e-8f5ee111f9af_Go-Biz_20200707_111123.jpeg?auto=format" },
+                { "nama": "Nasi Ayam Telur Asin", "harga": 39000, "deskripsi": "Irisan ayam goreng tepung dengan saus telur asin", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/a6b6c61d-fa62-4044-82ad-bd44ec0d52d6_Go-Biz_20200707_110834.jpeg?auto=format" },
+                { "nama": "Nasi Kepiting Soka Telur Asin", "harga": 49000, "deskripsi": "Kepiting soka goreng tepung dengan saus telur asin, disajikan dengan nasi", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/60c32acc-666b-4eda-8493-4123fa51fc75_Go-Biz_20200707_110928.jpeg?auto=format" },
+                { "nama": "Nasi Pedas Gila", "harga": 39000, "deskripsi": "Bakso, sosis, telur orak-arik, kulit ayam crispy dengan sambal spesial", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/39f81f89-1831-452d-9db9-6000810f1739_Go-Biz_20210112_110329.jpeg?auto=format" },
+                { "nama": "Nasi Ayam Bawang Pedas", "harga": 39000, "deskripsi": "Ayam fillet dengan bumbu bawang pedas, telur mata sapi, dan salad", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/969b87a1-1c38-4205-9508-360a4b15b1a8_Go-Biz_20210112_110600.jpeg?auto=format" },
+                { "nama": "Udang Lado Pete", "harga": 29000, "deskripsi": "Nasi dengan udang goreng bumbu balado dan pete", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/1fd938f3-1cf7-4b51-8c28-9fc7fdcb19a5_Go-Biz_20210317_101859.jpeg?auto=format" },
+                { "nama": "Daging Sapi Lada Hitam", "harga": 29000, "deskripsi": "Nasi dengan telur mata sapi dan daging sapi lada hitam", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/5c88ba83-f512-44da-871e-61a6567b9fa1_Go-Biz_20210317_102159.jpeg?auto=format" },
+                { "nama": "Ayam Bakar Taliwang", "harga": 29000, "deskripsi": "Nasi dengan telur mata sapi, sayur, dan ayam bakar bumbu taliwang", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/f070f6f4-c486-4573-8a27-161c2af1adab_Go-Biz_20210317_102326.jpeg?auto=format" },
+                { "nama": "Ayam Bakar Madu", "harga": 29000, "deskripsi": "Nasi dengan telur mata sapi dan ayam bakar madu", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/9691e643-8e56-4dea-80d9-3531146ff5ca_Go-Biz_20210317_102721.jpeg?auto=format" }
+            ],
+            "spaghetti": [
+                { "nama": "Spaghetti Carbonara", "harga": 49000, "deskripsi": "Pasta dengan jamur, daging asap, cream, dan keju", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/8e8577cd-3b78-4da9-994c-4a2b38c37318_Go-Biz_20200707_142402.jpeg?auto=format" },
+                { "nama": "Spaghetti Sambal Matah", "harga": 49000, "deskripsi": "Pasta dengan sambal matah khas Bali", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/9cd0dd1b-8bba-43e4-a688-c052f17147ae_Go-Biz_20200707_142434.jpeg?auto=format" }
+            ],
+            "menu_lainya": [
+                { "nama": "Spicy Chicken Mozarella", "harga": 49000, "deskripsi": "Chicken barbeque dipanggang dengan keju mozzarella", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/7af07df2-36e2-45a0-b58e-add1c6b9934d_Go-Biz_20210112_110129.jpeg?auto=format" },
+                { "nama": "Gulai Kepala Ikan 500gr", "harga": 115000, "deskripsi": "Versi lebih kecil dari gulai kepala ikan, cocok untuk 2 orang", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/d2171866-e7cc-4258-b1d6-4917a4501911_41c61554-6cf1-4aab-9ca4-1e07affe6610_file20190726-30495-twahae.jpeg?auto=format" },
+                { "nama": "Gulai Kepala Ikan Besar", "harga": 214500, "deskripsi": "Gulai kepala ikan dengan citarasa yang pas, cocok untuk 3-4 orang", "gambar": "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/8d8496ce-b91b-4576-ad9a-58806c321b97_Go-Biz_20200707_110712.jpeg?auto=format" }
+            ]
+        };
+
+        let menuData = [];
+        for (const [catKey, items] of Object.entries(rawMenuData)) {
+            let categoryName = "";
+            if (catKey === "mie") categoryName = "Mie";
+            else if (catKey === "nasi") categoryName = "Nasi";
+            else if (catKey === "spaghetti") categoryName = "Spaghetti";
+            else if (catKey === "menu_lainya") categoryName = "Menu lainya";
+            items.forEach(item => {
+                menuData.push({
+                    id: Math.random(),
+                    name: item.nama,
+                    category: categoryName,
+                    price: item.harga,
+                    desc: item.deskripsi,
+                    image: item.gambar
+                });
+            });
+        }
+
+        const galleryItems = [
+            { src: "Cuplikan layar dari 2026-04-07 09-05-07.png", size: "large" },
+            { src: "Cuplikan layar dari 2026-04-07 09-05-35.png", size: "tall" },
+            { src: "Cuplikan layar dari 2026-04-07 09-05-58.png", size: "normal" },
+            { src: "Cuplikan layar dari 2026-04-07 09-06-11.png", size: "normal" },
+            { src: "Cuplikan layar dari 2026-04-07 09-06-21.png", size: "normal" },
+            { src: "Cuplikan layar dari 2026-04-07 09-06-32.png", size: "large" },
+            { src: "Cuplikan layar dari 2026-04-07 09-06-48.png", size: "tall" },
+            { src: "Cuplikan layar dari 2026-04-07 09-06-56.png", size: "normal" }
+        ];
+        
+        const testimonials = [
+            { name:"Andi Setiawan", text:"Gulai kepala ikannya beneran juara! Kuahnya kental, dagingnya banyak. Tempat di hotel nyaman banget, pelayanan ramah.", avatar:"👨‍🍳", rating:5 },
+            { name:"Mega Purnama", text:"Seafood platter porsinya besar, fresh semua. Pizzanya juga enak! Pasti balik lagi.", avatar:"👩‍🍳", rating:5 },
+            { name:"Rizky Fadillah", text:"Tempatnya rame pas weekend, agak nunggu 15 menit, tapi rasa kepala goreng crispy worth it banget! Rekomendasi.", avatar:"🧑‍🍳", rating:4 },
+            { name:"Tuti Wulandari", text:"Fusion pasta seafood nagih! Pelayanan fast response, lokasi hotel enak buat dinner.", avatar:"👩‍🦰", rating:5 }
+        ];
+
+        let currentFilter = "all";
+        
+        function renderMenu() {
+            const container = document.getElementById('menuContainer');
+            if(!container) return;
+            let filtered = currentFilter === "all" ? menuData : menuData.filter(m => m.category === currentFilter);
+            container.innerHTML = filtered.map(m => `
+                <div class="menu-card scroll-animation">
+                    <div class="menu-img"><img src="${m.image}" alt="${m.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300?text=OOB+Menu'"></div>
+                    <div class="menu-info">
+                        <div class="menu-category">${m.category}</div>
+                        <div class="menu-name">${m.name}</div>
+                        <div class="menu-price">Rp ${m.price.toLocaleString('id-ID')}</div>
+                        <div class="menu-desc">${m.desc}</div>
+                    </div>
+                </div>
+            `).join('');
+            triggerScrollAnim();
+        }
+
+        function renderGalleryAsym() {
+            const container = document.getElementById('galleryGrid');
+            if(!container) return;
+            container.innerHTML = galleryItems.map(item => `
+                <div class="gallery-item ${item.size === 'large' ? 'large' : item.size === 'tall' ? 'tall' : ''} scroll-animation">
+                    <img src="${item.src}" loading="lazy" alt="Galeri OOB Kitchen" onerror="this.src='https://placehold.co/600x400?text=OOB+Gallery'">
+                </div>
+            `).join('');
+            triggerScrollAnim();
+        }
+
+        function renderTestimonials() {
+            const container = document.getElementById('testiContainer');
+            if(!container) return;
+            container.innerHTML = testimonials.map(t => {
+                let stars = '';
+                for(let i=1;i<=5;i++) stars += `<i class="fas fa-star" style="color:${i <= t.rating ? '#ffb347' : '#ddd'}; margin-right:2px; font-size:0.85rem;"></i>`;
+                return `
+                <div class="testi-card scroll-animation">
+                    <div class="testi-avatar">${t.avatar}</div>
+                    <div class="testi-text">"${t.text}"</div>
+                    <div class="testi-author">— ${t.name}</div>
+                    <div class="rating-stars">${stars}</div>
+                </div>`;
+            }).join('');
+            triggerScrollAnim();
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                if(link.dataset.page === pageId) link.classList.add('active-link');
+                else link.classList.remove('active-link');
+            });
+            if(pageId === 'menu') renderMenu();
+            if(pageId === 'gallery') renderGalleryAsym();
+            if(pageId === 'testimonials') renderTestimonials();
+            closeMenu();
+        }
+
+        function setupFilters() {
+            const btns = document.querySelectorAll('#menuFilter .cat-btn');
+            btns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.cat;
+                    renderMenu();
+                });
+            });
+        }
+
+        let observer = null;
+        function triggerScrollAnim() {
+            if(observer) observer.disconnect();
+            const elements = document.querySelectorAll('.scroll-animation');
+            observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            elements.forEach(el => observer.observe(el));
+        }
+
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+        function closeMenu() { document.getElementById('navLinks').classList.remove('active'); }
+
+        document.querySelectorAll('[data-page]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = el.getAttribute('data-page');
+                if(page) showPage(page);
+            });
+        });
+        document.getElementById('menuToggle')?.addEventListener('click', toggleMenu);
+        
+        renderMenu();
+        renderGalleryAsym();
+        renderTestimonials();
+        setupFilters();
+        setTimeout(triggerScrollAnim, 150);
+    </script>
+</body>
+</html>
