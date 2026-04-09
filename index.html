@@ -511,17 +511,6 @@
             border-radius: 26px;
             box-shadow: var(--shadow);
         }
-        .testi-avatar {
-            width: 48px;
-            height: 48px;
-            background: #f0dbcc;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-        }
         .testi-text {
             font-style: normal;
             font-weight: 500;
@@ -868,10 +857,10 @@
         ];
         
         const testimonials = [
-            { name:"Andi Setiawan", text:"Gulai kepala ikannya beneran juara! Kuahnya kental, dagingnya banyak. Tempat di hotel nyaman banget, pelayanan ramah.", avatar:"👨‍🍳", rating:5 },
-            { name:"Mega Purnama", text:"Seafood platter porsinya besar, fresh semua. Pizzanya juga enak! Pasti balik lagi.", avatar:"👩‍🍳", rating:5 },
-            { name:"Rizky Fadillah", text:"Tempatnya rame pas weekend, agak nunggu 15 menit, tapi rasa kepala goreng crispy worth it banget! Rekomendasi.", avatar:"🧑‍🍳", rating:4 },
-            { name:"Tuti Wulandari", text:"Fusion pasta seafood nagih! Pelayanan fast response, lokasi hotel enak buat dinner.", avatar:"👩‍🦰", rating:5 }
+            { name:"Dewi Warsito", text:"Ayam kalionya enak bgt, nambah sampe 3 kali. Hotel bintang 3, kualitas rasa bintang 5. Breakfastnya gada yang gagal.", rating:5 },
+            { name:"Nita Ekasari", text:"Makanan2 nya enak semua. Staffnya semua ramah2 tempatnya nyaman. Mushola nya jg bersih", rating:5 },
+            { name:"elly erma", text:"hotel bintang 3 serasa bintang 5 ,kamar mewah,staff ramah2 dan breakfastnya enak2 smua ,wajib cobain staycation disini", rating:5 },
+            { name:"dhiilaa NF", text:"Venue event wisuda SMK kartini pake hotel ini.👌. Overall mantap sih untuk makanan dan layanan nyaa. 💯 thanks maxone hotels..kebetulan crew FB nya ada siswa magang SMK kartini 👌👌💯. 🔥🔥.", rating:5 }
         ];
 
         let currentFilter = "all";
@@ -913,7 +902,6 @@
                 for(let i=1;i<=5;i++) stars += `<i class="fas fa-star" style="color:${i <= t.rating ? '#ffb347' : '#ddd'}; margin-right:2px; font-size:0.85rem;"></i>`;
                 return `
                 <div class="testi-card scroll-animation">
-                    <div class="testi-avatar">${t.avatar}</div>
                     <div class="testi-text">"${t.text}"</div>
                     <div class="testi-author">— ${t.name}</div>
                     <div class="rating-stars">${stars}</div>
