@@ -427,24 +427,45 @@
         }
 
         /* Gallery responsive */
+        /* Atur grid dengan dense agar item besar menempati ruang optimal */
         .gallery-masonry {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 14px;
             grid-auto-flow: dense;
         }
+        
+        /* Item besar (large) akan memakan 2 kolom */
+        .gallery-item.large {
+            grid-column: span 2;
+        }
+        
+        /* Item tinggi (tall) akan memakan 2 baris */
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+        
+        /* Responsif: tablet 2 kolom */
         @media (max-width: 768px) {
             .gallery-masonry {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+            }
+            /* Pada tablet, large tetap full lebar (2 kolom) agar tetap menonjol */
+            .gallery-item.large {
+                grid-column: span 2;
+            }
+            .gallery-item.tall {
+                grid-row: span 2;
             }
         }
+        
+        /* Responsif: HP 1 kolom, semua item normal */
         @media (max-width: 580px) {
             .gallery-masonry {
                 grid-template-columns: 1fr;
-                gap: 14px;
             }
-            .gallery-item.large, .gallery-item.tall {
+            .gallery-item.large,
+            .gallery-item.tall {
                 grid-column: span 1;
                 grid-row: span 1;
             }
